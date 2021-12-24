@@ -1,0 +1,270 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  background: url('./img/weather1.jpg') no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  font-family: 'Nunito', sans-serif;
+}
+
+body {
+  min-height: 100vh;
+}
+
+.weather {
+  display: flex;
+  flex-direction: column;
+
+  /* object-fit: contain; */
+  /* height: 100vh; */
+}
+
+.inputContainer {
+  display: flex;
+  flex-direction: column;
+  max-width: 800px;
+  margin: 40px auto;
+  margin-bottom: 0px;
+  justify-content: center;
+  align-items: center;
+}
+
+.inputContainer h2 {
+  margin-top: 20px;
+}
+
+.inputContainer form {
+  display: flex;
+  flex-direction: column;
+  width: 800px;
+  justify-content: center;
+  align-items: center;
+}
+input {
+  background-color: rgba(255, 255, 255, 0.712);
+  margin: 4px;
+  height: 25px;
+  padding: 5px;
+  width: 90%;
+  border-radius: 5px;
+  outline: none;
+  border: none;
+  text-align: center;
+}
+::placeholder {
+  color: rgb(51, 51, 51);
+}
+
+button {
+  margin: 4px;
+  padding: 5px;
+  height: 30px;
+  width: 92%;
+  font-weight: 600;
+  border-radius: 5px;
+  justify-content: center;
+  align-items: center;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  background-color: rgb(252, 202, 182);
+  -webkit-box-shadow: 3px 3px 15px -3px rgba(0, 0, 0, 0.65);
+  box-shadow: 3px 3px 15px -3px rgba(0, 0, 0, 0.65);
+}
+button:hover {
+  background-color: rgb(252, 144, 102);
+  color: #fff;
+}
+
+.weatherInfo {
+  background-color: rgba(245, 253, 255, 0.301);
+  /* color: #fff; */
+  width: 50%;
+  border-radius: 5px;
+  justify-content: center;
+  font-size: 15px;
+  letter-spacing: 2px;
+  align-items: center;
+  margin: auto;
+  margin-bottom: 20px;
+  -webkit-box-shadow: 3px 3px 15px -3px rgba(0, 0, 0, 0.65);
+  box-shadow: 3px 3px 15px -3px rgba(0, 0, 0, 0.65);
+  text-align: center;
+}
+
+.weatherInfo p {
+  margin: 10px;
+}
+
+.weatherInfo h2,
+.weatherInfo h3 {
+  margin: 10px;
+}
+
+.day5 {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 800px;
+  margin: 10px auto;
+  padding: 20px;
+  padding-top: 0px;
+}
+
+.forecastContainer {
+  background-color: rgba(245, 253, 255, 0.753);
+  display: flex;
+  flex-direction: column;
+  font-size: 14px;
+  text-transform: capitalize;
+  margin: 4px;
+  padding: 0;
+  width: 100%;
+  border-radius: 5px;
+  border-right: 1px dotted black;
+  -webkit-box-shadow: 3px 3px 15px -3px rgba(0, 0, 0, 0.65);
+  box-shadow: 3px 3px 15px -3px rgba(0, 0, 0, 0.65);
+}
+.forecastContainer:last-child {
+  border-right: none;
+}
+.forecastContainer p {
+  margin: 4px;
+}
+.forecastContainer img {
+  width: 50px;
+  height: auto;
+  margin: auto;
+}
+
+.forecastContainer h4 {
+  margin: 10px 0px;
+}
+.description {
+  text-transform: capitalize;
+}
+
+.state {
+  text-transform: capitalize;
+}
+
+.currentDate {
+  margin: 0;
+}
+
+input:focus::placeholder {
+  color: transparent;
+}
+
+.fa-chevron-right,
+.fa-chevron-left {
+  display: none;
+}
+
+.fa-chevron-right:before,
+.fa-chevron-left:before {
+  display: none;
+}
+
+@media (max-width: 1024px) {
+  .weather {
+    width: 100%;
+  }
+}
+
+@media (max-width: 800px) {
+  .day5 {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 480px) {
+  .fa-chevron-right:before,
+  .fa-chevron-left:before {
+    display: block;
+  }
+  .weather {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+  .weatherInfo {
+    margin-bottom: 10px;
+    padding: 15px;
+    width: 80%;
+  }
+  .inputContainer {
+    display: flex;
+    width: 100%;
+
+    padding: 0;
+  }
+  .inputContainer form {
+    width: 200px;
+  }
+  .day5 {
+    display: block;
+    white-space: nowrap;
+    overflow: auto;
+    width: 80%;
+    /* margin: 0; */
+    padding: 0;
+    justify-content: center;
+    align-items: center;
+    /* position: relative; */
+  }
+  .forecastContainer {
+    /* width: 80%; */
+    position: relative;
+    display: inline-block;
+    -webkit-overflow-scrolling: touch;
+  }
+  .fa-chevron-right {
+    display: block;
+    color: rgb(170, 170, 170);
+    position: absolute;
+    vertical-align: middle;
+    bottom: 15%;
+    left: 80%;
+    transform: translate(-15%, -80%);
+    z-index: 1000;
+  }
+  .fa-chevron-left {
+    display: block;
+    color: rgb(170, 170, 170);
+    position: absolute;
+    vertical-align: middle;
+    bottom: 15%;
+    right: 80%;
+    transform: translate(-15%, -80%);
+    z-index: 1000;
+  }
+}
+
+/* ARROWS MOVE DEPENDING ON SCREEN SIZE. Maybe move icons under day5 */
+
+/* for 480px if side scrolling no work */
+/*   .day5 {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    margin: 0;
+    padding: 0;
+    justify-content: center;
+    align-items: center;
+  }
+  .forecastContainer {
+    width: 80%;
+  } */

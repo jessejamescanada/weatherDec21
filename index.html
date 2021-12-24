@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/3b56dc2a5c.js" crossorigin="anonymous"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@500&display=swap" rel="stylesheet">
+    <title>Document</title>
+</head>
+<body>
+    <div class="weather">
+        <div class="inputContainer">
+
+
+        <div class="weatherInfo">
+            <!-- <h2>Current Weather</h2> -->
+            <h3><span class="cityName"></span>, <span class="state"></span></h3>
+            <h5 class="currentDate"></h5>
+            <p>Temperature: <span class="temp"></span>&#176;</p>
+            <p>Humidity: <span class="humidity"></span>%</p>
+            <p>Feels Like: <span class="feelsLike"></span>&#176;</p>
+            <p>Wind: <span class="wind"></span> MPH</p>
+            <p><span class="description"></span></p>
+            <img class="iconMain">
+        </div>
+        <form>
+            <input id="userInput" type="text" placeholder="Enter City">
+            <input id="userInputState" type="text" placeholder="Enter State">
+            <button class="weatherBtn">Get Weather</button>
+        </form>
+        <!-- <h2>3 Day Forecast</h2> -->
+        </div>
+        
+        <div class="day5">
+
+            
+            <div class="forecastContainer">
+                <i class="fas fa-chevron-right fa-3x"></i>
+   
+                <h4 class="date"><span class="date1"></span></h4>
+                <p>Temperature: <span class="temp2"></span>&#176;</p>
+                <p>Humidity: <span class="humidity2"></span>%</p>
+                <p>Feels Like: <span class="feelsLike2"></span>&#176;</p>
+                <p>Wind: <span class="wind2"></span> MPH</p>
+                <p><span class="description2"></span></p>
+                <img class="iconDay1">
+            </div>
+            <div class="forecastContainer">
+                <h4 class="date"><span class="date2"></span></h4>
+                <p>Temperature: <span class="temp3"></span>&#176;</p>
+                <p>Humidity: <span class="humidity3"></span>%</p>
+                <p>Feels Like: <span class="feelsLike3"></span>&#176;</p>
+                <p>Wind: <span class="wind3"></span> MPH</p>
+                <p><span class="description3"></span></p>
+                <img class="iconDay2">
+            </div>
+            <div class="forecastContainer">
+                <i class="fas fa-chevron-left fa-3x"></i>
+
+                <h4 class="date"><span class="date3"></span></h4>
+                <p>Temperature: <span class="temp4"></span>&#176;</p>
+                <p>Humidity: <span class="humidity4"></span>%</p>
+                <p>Feels Like: <span class="feelsLike4"></span>&#176;</p>
+                <p>Wind: <span class="wind4"></span> MPH</p>
+                <p><span class="description4"></span></p>
+                <img class="iconDay3">
+            </div>
+        </div>
+
+    </div> 
+    <script src="lib/moment/moment.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
