@@ -60,7 +60,14 @@ chevronLeft.addEventListener('click', () => {
 
 window.onload = function(){
     // load localstorage on page load and use it
-    const loadLocation = JSON.parse(localStorage.getItem('location'))
+    let  loadLocation = JSON.parse(localStorage.getItem('location'))
+    // set default location if localstorage is empty (ie first time visiting site)
+    if(loadLocation == null){
+        loadLocation = {city: 'Chicago', state: 'illinois'}
+        console.log('BABE')
+    }
+    console.log(loadLocation)
+
     // trying localstorage with 5 day
     const load5D = JSON.parse(localStorage.getItem('5days'))
     console.log(load5D)
@@ -122,6 +129,13 @@ function weatherResults(e) {
     // set local storage and read it
     localStorage.setItem('location', JSON.stringify(myObject))
     const parseLocalStorage = JSON.parse(localStorage.getItem('location'))
+
+    // scroll back to start date for 5 day forecast when location changed
+    day5.scrollBy({
+        top: 0,
+        left: -3000,
+        behavior: 'smooth'
+    })
     
 
     fetch(`https://api.openweathermap.org/data/2.5/weather?q=${parseLocalStorage.city},${parseLocalStorage.state}&units=imperial&appid=${apiKey}`)
