@@ -65,7 +65,7 @@ window.onload = function(){
     const load5D = JSON.parse(localStorage.getItem('5days'))
     console.log(load5D)
     // 
-    fetch(`http://api.openweathermap.org/data/2.5/weather?q=${loadLocation.city},${loadLocation.state}&units=imperial&appid=${apiKey}`)
+    fetch(`https://api.openweathermap.org/data/2.5/weather?q=${loadLocation.city},${loadLocation.state}&units=imperial&appid=${apiKey}`)
     .then(res => res.json())
     .then(data =>{
         console.log(data)
@@ -81,7 +81,7 @@ window.onload = function(){
     })
 
     // 5day fetch
-    fetch(`http://api.openweathermap.org/data/2.5/forecast?q=${loadLocation.city},${loadLocation.state}&units=imperial&appid=${apiKey}`)
+    fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${loadLocation.city},${loadLocation.state}&units=imperial&appid=${apiKey}`)
     .then(res => res.json())
     .then(data => {
         console.log(data.list)
@@ -91,7 +91,7 @@ window.onload = function(){
         feelsLike2.innerHTML = data.list[6].main.feels_like.toFixed(0)
         wind2.innerHTML = data.list[6].wind.speed.toFixed(0)
         desc2.innerHTML = data.list[6].weather[0].description
-        iconDay1.setAttribute("src", `http://openweathermap.org/img/wn/${data.list[6].weather[0].icon}.png`)
+        iconDay1.setAttribute("src", `https://openweathermap.org/img/wn/${data.list[6].weather[0].icon}.png`)
         // day2
         date2.innerHTML = moment.unix(data.list[15].dt).format('LL')
         temp3.innerHTML = data.list[15].main.temp.toFixed(0)
@@ -99,7 +99,7 @@ window.onload = function(){
         feelsLike3.innerHTML = data.list[15].main.feels_like.toFixed(0)
         wind3.innerHTML = data.list[15].wind.speed.toFixed(0)
         desc3.innerHTML = data.list[15].weather[0].description
-        iconDay2.setAttribute("src", `http://openweathermap.org/img/wn/${data.list[15].weather[0].icon}.png`)
+        iconDay2.setAttribute("src", `https://openweathermap.org/img/wn/${data.list[15].weather[0].icon}.png`)
         // day3
         date3.innerHTML = moment.unix(data.list[22].dt).format('LL')
         temp4.innerHTML = data.list[22].main.temp.toFixed(0)
@@ -107,7 +107,7 @@ window.onload = function(){
         feelsLike4.innerHTML = data.list[22].main.feels_like.toFixed(0)
         wind4.innerHTML = data.list[22].wind.speed.toFixed(0)
         desc4.innerHTML = data.list[22].weather[0].description
-        iconDay3.setAttribute("src", `http://openweathermap.org/img/wn/${data.list[22].weather[0].icon}.png`)
+        iconDay3.setAttribute("src", `https://openweathermap.org/img/wn/${data.list[22].weather[0].icon}.png`)
     })
 }
 
@@ -124,7 +124,7 @@ function weatherResults(e) {
     const parseLocalStorage = JSON.parse(localStorage.getItem('location'))
     
 
-    fetch(`http://api.openweathermap.org/data/2.5/weather?q=${parseLocalStorage.city},${parseLocalStorage.state}&units=imperial&appid=${apiKey}`)
+    fetch(`https://api.openweathermap.org/data/2.5/weather?q=${parseLocalStorage.city},${parseLocalStorage.state}&units=imperial&appid=${apiKey}`)
     .then(res => res.json())
     .then(data => {
         console.log(data)
@@ -144,7 +144,7 @@ function weatherResults(e) {
 }
 
 function forecast5Days(location) {
-    const day5LS = fetch(`http://api.openweathermap.org/data/2.5/forecast?q=${location.city},${location.state}&units=imperial&appid=${apiKey}`)
+    const day5LS = fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${location.city},${location.state}&units=imperial&appid=${apiKey}`)
     .then(res => res.json())
     .then(data => {
         console.log(data.list)
@@ -154,7 +154,7 @@ function forecast5Days(location) {
         feelsLike2.innerHTML = data.list[6].main.feels_like.toFixed(0)
         wind2.innerHTML = data.list[6].wind.speed.toFixed(0)
         desc2.innerHTML = data.list[6].weather[0].description
-        iconDay1.setAttribute("src", `http://openweathermap.org/img/wn/${data.list[6].weather[0].icon}.png`)
+        iconDay1.setAttribute("src", `https://openweathermap.org/img/wn/${data.list[6].weather[0].icon}.png`)
 
         date2.innerHTML = moment.unix(data.list[15].dt).format('LL')
         temp3.innerHTML = data.list[15].main.temp.toFixed(0)
@@ -162,7 +162,7 @@ function forecast5Days(location) {
         feelsLike3.innerHTML = data.list[15].main.feels_like.toFixed(0)
         wind3.innerHTML = data.list[15].wind.speed.toFixed(0)
         desc3.innerHTML = data.list[15].weather[0].description
-        iconDay2.setAttribute("src", `http://openweathermap.org/img/wn/${data.list[15].weather[0].icon}.png`)
+        iconDay2.setAttribute("src", `https://openweathermap.org/img/wn/${data.list[15].weather[0].icon}.png`)
 
         date3.innerHTML = moment.unix(data.list[22].dt).format('LL')
         temp4.innerHTML = data.list[22].main.temp.toFixed(0)
@@ -170,7 +170,7 @@ function forecast5Days(location) {
         feelsLike4.innerHTML = data.list[22].main.feels_like.toFixed(0)
         wind4.innerHTML = data.list[22].wind.speed.toFixed(0)
         desc4.innerHTML = data.list[22].weather[0].description
-        iconDay3.setAttribute("src", `http://openweathermap.org/img/wn/${data.list[22].weather[0].icon}.png`)
+        iconDay3.setAttribute("src", `https://openweathermap.org/img/wn/${data.list[22].weather[0].icon}.png`)
     })
 // try localstorage with 5day
     localStorage.setItem('5days', JSON.stringify(day5LS))
