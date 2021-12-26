@@ -123,13 +123,12 @@ weatherBtn.addEventListener('click', weatherResults)
 function weatherResults(e) {
     e.preventDefault()
     const myObject = {
-        city: userInputCity.value,
-        state: userInputState.value
+        city: userInputCity.value.trim(),
+        state: userInputState.value.trim()
     }
     // set local storage and read it
     localStorage.setItem('location', JSON.stringify(myObject))
     const parseLocalStorage = JSON.parse(localStorage.getItem('location'))
-
     // scroll back to start date for 5 day forecast when location changed
     day5.scrollBy({
         top: 0,
@@ -137,19 +136,37 @@ function weatherResults(e) {
         behavior: 'smooth'
     })
     
-
     fetch(`https://api.openweathermap.org/data/2.5/weather?q=${parseLocalStorage.city},${parseLocalStorage.state}&units=imperial&appid=${apiKey}`)
     .then(res => res.json())
     .then(data => {
         console.log(data)
         console.log(data.weather[0].description)
+        
+        const {main : {temp_max}} = data
+        const {main: {temp}} = data
+        const {main: {humidity}} = data
+        const {main: {feels_like}} = data
+        const {wind: {speed}} = data
+        const {weather: {0: {description}}} = data
+       console.log(temp_max)
+
+// WITHOUT DESTRUCTURING
+        // cityName.innerHTML = data.name
+        // stateName.innerHTML = parseLocalStorage.state
+        // temp.innerHTML = data.main.temp.toFixed(0)
+        // humidity.innerHTML = data.main.humidity
+        // feelsLike.innerHTML = data.main.feels_like.toFixed(0)
+        // wind.innerHTML = data.wind.speed.toFixed(0)
+        // desc.innerHTML = data.weather[0].description
+        // iconMain.setAttribute("src", `http://openweathermap.org/img/wn/${data.weather[0].icon}.png`)
+
         cityName.innerHTML = data.name
         stateName.innerHTML = parseLocalStorage.state
-        temp.innerHTML = data.main.temp.toFixed(0)
-        humidity.innerHTML = data.main.humidity
-        feelsLike.innerHTML = data.main.feels_like.toFixed(0)
-        wind.innerHTML = data.wind.speed.toFixed(0)
-        desc.innerHTML = data.weather[0].description
+        temp.innerHTML = temp.toFixed(0)
+        humidity.innerHTML = humidity
+        feelsLike.innerHTML = feels_like
+        wind.innerHTML = speed.toFixed(0)
+        desc.innerHTML = description
         iconMain.setAttribute("src", `http://openweathermap.org/img/wn/${data.weather[0].icon}.png`)
     })
     userInputCity.value = ''
