@@ -64,13 +64,10 @@ window.onload = function(){
     // set default location if localstorage is empty (ie first time visiting site)
     if(loadLocation == null){
         loadLocation = {city: 'Chicago', state: 'illinois'}
-        console.log('BABE')
     }
-    console.log(loadLocation)
 
-    // trying localstorage with 5 day
+    // localstorage with 5 day
     const load5D = JSON.parse(localStorage.getItem('5days'))
-    console.log(load5D)
     // 
     fetch(`https://api.openweathermap.org/data/2.5/weather?q=${loadLocation.city},${loadLocation.state}&units=imperial&appid=${apiKey}`)
     .then(res => res.json())
@@ -139,9 +136,7 @@ function weatherResults(e) {
     fetch(`https://api.openweathermap.org/data/2.5/weather?q=${parseLocalStorage.city},${parseLocalStorage.state}&units=imperial&appid=${apiKey}`)
     .then(res => res.json())
     .then(data => {
-        console.log(data)
-        console.log(data.weather[0].description)
-        
+        // destructuring
         const {main : {temp_max}} = data
         const {main: {temp}} = data
         const {main: {humidity}} = data
@@ -174,6 +169,7 @@ function weatherResults(e) {
     forecast5Days(parseLocalStorage)
 }
 
+// 5 day forecast
 function forecast5Days(location) {
     const day5LS = fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${location.city},${location.state}&units=imperial&appid=${apiKey}`)
     .then(res => res.json())
@@ -203,7 +199,7 @@ function forecast5Days(location) {
         desc4.innerHTML = data.list[22].weather[0].description
         iconDay3.setAttribute("src", `https://openweathermap.org/img/wn/${data.list[22].weather[0].icon}.png`)
     })
-// try localstorage with 5day
+//  localstorage with 5day
     localStorage.setItem('5days', JSON.stringify(day5LS))
     const parse5Day = JSON.parse(localStorage.getItem('5days'))
 }
