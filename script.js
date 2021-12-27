@@ -13,6 +13,8 @@ const currentDate = document.querySelector('.currentDate')
 const date1 = document.querySelector('.date1')
 const date2 = document.querySelector('.date2')
 const date3 = document.querySelector('.date3')
+const date4 = document.querySelector('.date4')
+const date5 = document.querySelector('.date5')
 
 const temp2 = document.querySelector('.temp2')
 const humidity2 = document.querySelector('.humidity2')
@@ -32,10 +34,24 @@ const desc4 = document.querySelector('.description4')
 const wind4 = document.querySelector('.wind4')
 const feelsLike4 = document.querySelector('.feelsLike4')
 
+const temp5 = document.querySelector('.temp5')
+const humidity5 = document.querySelector('.humidity5')
+const desc5 = document.querySelector('.description5')
+const wind5 = document.querySelector('.wind5')
+const feelsLike5 = document.querySelector('.feelsLike5')
+
+const temp6 = document.querySelector('.temp6')
+const humidity6 = document.querySelector('.humidity6')
+const desc6 = document.querySelector('.description6')
+const wind6 = document.querySelector('.wind6')
+const feelsLike6 = document.querySelector('.feelsLike6')
+
 const iconMain = document.querySelector('.iconMain')
 const iconDay1 = document.querySelector('.iconDay1')
 const iconDay2 = document.querySelector('.iconDay2')
 const iconDay3 = document.querySelector('.iconDay3')
+const iconDay4 = document.querySelector('.iconDay4')
+const iconDay5 = document.querySelector('.iconDay5')
 
 const chevronRight = document.querySelector('.fa-chevron-right')
 const chevronLeft = document.querySelector('.fa-chevron-left')
@@ -112,6 +128,22 @@ window.onload = function(){
         wind4.innerHTML = data.list[22].wind.speed.toFixed(0)
         desc4.innerHTML = data.list[22].weather[0].description
         iconDay3.setAttribute("src", `https://openweathermap.org/img/wn/${data.list[22].weather[0].icon}.png`)
+
+        date4.innerHTML = moment.unix(data.list[29].dt).format('LL')
+        temp5.innerHTML = data.list[29].main.temp.toFixed(0)
+        humidity5.innerHTML = data.list[29].main.humidity
+        feelsLike5.innerHTML = data.list[29].main.feels_like.toFixed(0)
+        wind5.innerHTML = data.list[29].wind.speed.toFixed(0)
+        desc5.innerHTML = data.list[29].weather[0].description
+        iconDay4.setAttribute("src", `https://openweathermap.org/img/wn/${data.list[29].weather[0].icon}.png`)
+
+        date5.innerHTML = moment.unix(data.list[36].dt).format('LL')
+        temp6.innerHTML = data.list[36].main.temp.toFixed(0)
+        humidity6.innerHTML = data.list[36].main.humidity
+        feelsLike6.innerHTML = data.list[36].main.feels_like.toFixed(0)
+        wind6.innerHTML = data.list[36].wind.speed.toFixed(0)
+        desc6.innerHTML = data.list[36].weather[0].description
+        iconDay5.setAttribute("src", `https://openweathermap.org/img/wn/${data.list[36].weather[0].icon}.png`)
     })
 }
 
