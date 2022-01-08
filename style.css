@@ -20,9 +20,6 @@ body {
 .weather {
   display: flex;
   flex-direction: column;
-
-  /* object-fit: contain; */
-  /* height: 100vh; */
 }
 
 .inputContainer {
@@ -84,7 +81,6 @@ button:hover {
 
 .weatherInfo {
   background-color: rgba(245, 253, 255, 0.301);
-  /* color: #fff; */
   width: 50%;
   border-radius: 5px;
   justify-content: center;
@@ -219,17 +215,15 @@ input:focus::placeholder {
     white-space: nowrap;
     overflow: auto;
     width: 80%;
-    /* margin: 0; */
     padding: 0;
     justify-content: center;
     align-items: center;
-    /* position: relative; */
   }
   .forecastContainer {
-    /* width: 80%; */
     position: relative;
     display: inline-block;
     -webkit-overflow-scrolling: touch;
+    min-height: 200px;
   }
   .fa-chevron-right {
     display: block;
@@ -252,19 +246,3 @@ input:focus::placeholder {
     z-index: 1000;
   }
 }
-
-/* ARROWS MOVE DEPENDING ON SCREEN SIZE. Maybe move icons under day5 */
-
-/* for 480px if side scrolling no work */
-/*   .day5 {
-    display: flex;
-    flex-direction: column;
-    width: 80%;
-    margin: 0;
-    padding: 0;
-    justify-content: center;
-    align-items: center;
-  }
-  .forecastContainer {
-    width: 80%;
-  } */
